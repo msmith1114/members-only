@@ -1,0 +1,10 @@
+<% @posts.each do |post| %>
+<div class="card mx-auto" style="width: 18rem;">
+  <div class="card-body">
+    <% if logged_in? %>
+      <h5 class="card-title"><%=post.user.name%></h5>
+    <% end %>
+    <p class="card-text"><%=post.post%></p>
+  </div>
+</div>
+<%end%>

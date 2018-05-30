@@ -1,0 +1,21 @@
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@post.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <%= form_for(@post) do |f| %>
+      <%= f.label :post %>
+      <%= f.text_field :post, class: 'form-control' %>
+      <%= f.submit "Create Post", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
